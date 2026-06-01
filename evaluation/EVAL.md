@@ -1,14 +1,18 @@
 # MCP Evaluation
 
-This repository evaluates MCP functionality rather than model quality.
+## Purpose
+
+Unlike traditional AI evaluations that focus on model quality, this repository evaluates MCP functionality and protocol interactions.
+
+The objective is to verify that clients and servers can successfully communicate using MCP concepts.
 
 ---
 
-# Evaluation Areas
+# What We Evaluate
 
 ## Resource Discovery
 
-Can the client discover server resources?
+Can the client discover available resources?
 
 ---
 
@@ -26,17 +30,35 @@ Can the client discover available tools?
 
 ## Tool Execution
 
-Can tools execute correctly?
+Can tools execute successfully?
 
 ---
 
-## Tool Arguments
+## Tool Parameter Handling
 
-Can tools receive and process parameters?
+Can tools accept and process structured arguments?
 
 ---
 
-# Run
+# Evaluation Flow
+
+```text
+Client Connects
+      ↓
+Discover Resources
+      ↓
+Read Resources
+      ↓
+Discover Tools
+      ↓
+Execute Tools
+      ↓
+Validate Results
+```
+
+---
+
+# Running Evaluation
 
 ```bash
 python -m evaluation.evaluator
@@ -44,6 +66,43 @@ python -m evaluation.evaluator
 
 ---
 
-# Goal
+# Success Criteria
 
-Verify MCP server-client interoperability.
+The evaluation is considered successful when:
+
+* resources are discoverable
+* resources can be read
+* tools are discoverable
+* tools execute successfully
+* tool parameters are processed correctly
+
+---
+
+# Limitations
+
+This evaluation framework focuses on protocol functionality rather than production-scale concerns.
+
+It does not currently evaluate:
+
+* authentication
+* authorization
+* performance
+* scalability
+* security controls
+
+---
+
+# Future Improvements
+
+Potential enhancements include:
+
+* performance benchmarking
+* error handling validation
+* integration testing
+* multi-server evaluation
+
+---
+
+# Summary
+
+The evaluation framework provides a lightweight mechanism for validating MCP client-server interoperability and ensuring that core MCP concepts function as expected.
